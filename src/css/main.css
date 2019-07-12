@@ -1,0 +1,55 @@
+#header {
+    height: 15%;
+    top: 0px;
+    background: transparent;
+}
+
+#content {
+    position: absolute;
+}
+
+#footer {
+    height: 5%;
+    position: fixed;
+    background: transparent;
+    bottom: 0px;
+}
+
+.app {
+    padding: 2%;
+}
+
+.button {
+    padding: 0.5%;
+    margin-right: 1%;
+    width: 5%;
+    border: solid;
+    border-width: 1px;
+    border-color: blue;
+    background-color: aliceblue;
+}
+
+.button:hover{
+    background-color: aqua;
+}
+
+.content {
+    margin-top: 2%;
+}
+
+#submit {
+    margin-left:2%;
+    
+}
+
+.titles {
+    color: brown;
+}
+
+table {
+    margin-top: 3%;
+}
+
+tr td, tr th {
+    padding: 1%;
+}
