@@ -1,11 +1,15 @@
 #header {
-    height: 15%;
+    height: auto;
     top: 0px;
-    background: transparent;
+    background: #ffff90;
+    position: fixed;
+    width: 100%;
+
 }
 
 #content {
     position: absolute;
+    margin-top: 10%;
 }
 
 #footer {
@@ -16,20 +20,22 @@
 }
 
 .app {
-    padding: 2%;
+    text-align: center;
+    margin: auto;
 }
 
-.button {
+.customButton {
     padding: 0.5%;
     margin-right: 1%;
-    width: 5%;
+    width: auto;
     border: solid;
     border-width: 1px;
     border-color: blue;
     background-color: aliceblue;
+    margin-left:0.5%;
 }
 
-.button:hover{
+.customButton:hover{
     background-color: aqua;
 }
 
@@ -47,9 +53,46 @@
 }
 
 table {
+    border-collapse: collapse;
+    border-spacing: 2%;
+    margin: 0 auto;
     margin-top: 3%;
+    width: 100%;
+    padding: 2%;
 }
 
 tr td, tr th {
-    padding: 1%;
+    padding: 2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+tr td {
+    font-weight: normal;
+}
+
+#basetable, .content {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#navmenu {
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.navbuttons {
+    margin-top: 2%;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.loading {
+    width: 10%;
+    padding-top: 10%;
+}
+
+#not_found {
+    padding-top: 5%;
 }

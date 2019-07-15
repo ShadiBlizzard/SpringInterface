@@ -6,7 +6,7 @@ class StudentMain extends React.Component {
         super(props);
 
         this.state = {
-            result: '',
+            result: [],
             called: false
         }
     }
@@ -20,7 +20,6 @@ class StudentMain extends React.Component {
                             result: data,
                             called: true
                         });
-                        console.log("sbiri");
                     }}
                     suffix="students" />
                 <StudentResult value={this.state.result} called={this.state.called} caller="single_id" /> <br />
@@ -53,6 +52,11 @@ class StudentResult extends React.Component {
     render() {
         if (!this.props.called)
             return null;
+
+        if(typeof(this.props.value) === 'string')
+            return(
+                <p id="not_found">{this.props.value}</p>
+            );
         if (this.props.caller === "single_id")
             return (
                 <table border="1">
@@ -117,7 +121,7 @@ function StudentItem(props) {
 
 function DetailsButton(props) {
     return (
-        <button className="buttons" student={props.student}>See career</button>
+        <button className="customButton" student={props.student}>See career</button>
     );
 }
 export default StudentMain;

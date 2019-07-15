@@ -14,8 +14,8 @@ class App extends React.Component {
   render () {
       return (
       <div className="app">
-        <Header/>
-        <Content/>
+        <Header/><br/>
+        <Content/><br/>
         <Footer/>
       </div>
       );

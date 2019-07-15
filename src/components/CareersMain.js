@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../images/loading.gif';
 
 class CareersMain extends React.Component {
     constructor(props) {
@@ -9,7 +10,8 @@ class CareersMain extends React.Component {
             result: [],
             prev: true,
             next: false,
-            max: 0
+            max: 0,
+            loading: false,
         }
 
         this.goNext = this.goNext.bind(this);
@@ -20,11 +22,15 @@ class CareersMain extends React.Component {
 
 
     componentWillMount() {
+        this.setState( {
+            loading: true
+        });
         fetch('http://localhost:8080/career/count')
         .then((response) => response.json())
         .then(searchRes => {
             this.setState({
-                max: searchRes.response
+                max: searchRes.response,
+                loading: false
             });
         })
         .catch(err => console.log(err));
@@ -32,12 +38,16 @@ class CareersMain extends React.Component {
         }
 
     findCareers() {
+        this.setState( {
+            loading: true
+        });
         fetch('http://localhost:8080/career/all?page=' + this.state.page + "&size=" + this.state.size)
             .then((response) => response.json())
             .then(searchRes => {
                 console.log(searchRes);
                 this.setState({
-                    result: searchRes.response
+                    result: searchRes.response,
+                    loading: false
                 });
             })
             .catch((err) => console.log(err));
@@ -46,9 +56,14 @@ class CareersMain extends React.Component {
 
     render() {
         const careers = this.state.result;
+        if(this.state.loading) 
+        return(
+            <img class="loading" src={Loading} alt="loading"/>
+        );
+
         return (
-            <div id="baseTable">
-                <table border='1'>
+            <div id="basetable">
+                <table border='1' cellSpacing="1%" cellPadding="2%">
                     <tbody>
                         <tr>
                             <th>Name</th>
@@ -70,8 +85,8 @@ class CareersMain extends React.Component {
                     </tbody>
                 </table>
                 <div align='right'>
-                    <button disabled={this.state.prev} onClick={this.goPrevious} id="previous">Previous</button>
-                    <button disabled={this.state.next} onClick={this.goNext} id="next">Next</button>
+                    <button disabled={this.state.prev} onClick={this.goPrevious} id="previous" className="customButton navbuttons">Previous</button>
+                    <button disabled={this.state.next} onClick={this.goNext} id="next" className="customButton navbuttons">Next</button>
                 </div>
 
             </div>

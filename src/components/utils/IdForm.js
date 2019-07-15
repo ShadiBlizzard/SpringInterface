@@ -16,7 +16,7 @@ class IdForm extends React.Component {
             <div>
                 <form onSubmit={this.findById}>
                     <input required type="number" onChange={this.handleId} placeholder="Insert id"/>
-                    <input type="submit" value="submit"/>
+                    <input type="submit" className="customButton" value="submit"/>
                 </form>
             </div>
         );
@@ -37,7 +37,9 @@ class IdForm extends React.Component {
             .then(
                 (response) => response.json())
             .then(searchRes => {
-                return searchRes.response;
+                if(searchRes.response!=null)
+                    return searchRes.response;
+                return searchRes.msg;
             })
             .then(data => {
                 if (this.props.onResult) {

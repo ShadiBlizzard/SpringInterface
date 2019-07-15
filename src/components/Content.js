@@ -19,12 +19,12 @@ class Content extends React.Component {
 
     render() {
         return(
-            <div id = "navMenu">
+            <div id = "navmenu">
                 <Button id="studentsButton" name="Students" click = {this.changeInterface} caller = {StudentMain}/>
                 <Button id="coursesButton" name="Courses" click = {this.changeInterface} caller = {CoursesMain}/>
                 <Button id="examsButton" name="Exams" click = {this.changeInterface} caller = {ExamsMain}/>
                 <Button id="careerButton" name="Careers" click = {this.changeInterface} caller = {CareersMain}/>
-
+                <br/><br/>
                 <this.state.window/>
             </div>
         );
